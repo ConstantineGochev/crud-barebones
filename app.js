@@ -173,7 +173,8 @@ app.put('/yachts/:id',(req,res)=>{
         yacht.date = req.body.date,
         yacht.status = req.body.status,
         yacht.user = req.body.user,
-        yacht.username = req.body.username
+        yacht.username = req.body.username,
+        yacht.client = req.body.client
 
         yacht.save()
         .then(yacht =>{
