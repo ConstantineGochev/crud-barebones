@@ -1,28 +1,78 @@
+{{#if user.is_admin}}
+{{> _errors}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User name</th>
+      <th scope="col">User id</th>
+      <th scope="col">User email</th>      
+      <th scope="col"><button class="btn btn-primary ml-10 hide_show">Show passwords</button></th>
+    </tr>
+  </thead>
+  <tbody>
+{{#each users}}
+    <tr>
+      <th scope="row">{{name}}</th>
+      <td>{{id}}</td>
+      <td>{{email}}</td>
+      <td><span class="password">{{password}}</span></td>
+    </tr>
+    
+{{else}}
+    <p>No users sorry</p>
+{{/each}}
+    
+   
+  </tbody>
+</table>
+
+
 <div class="card card-body">
     <h3>Include a charter</h3>
     <form action="/yachts" method="post">
         <div class="form-group">
             <label for="yachtname">Yacht name</label>
-            <input type="text" class="form-control" name="yachtname" />
+            <input type="text" class="form-control" name="yachtname" required />
         </div>
         <div class="form-group">
             <label for="destination">Destination</label>
-            <select class="form-control" name="destination">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+            <select class="form-control" name="destination" >
+                <option>Athens</option>
+                <option>Mykonos</option>
+                <option>Lefkada</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="date">Departure date</label>
-            <input type="text" class="form-control" name="date" />
+            <label for="date">Departure - Arrival date</label>
+            <input type="text" class="form-control" name="date" required />
         </div>
         <div class="form-group">
-            <label for="status">Charter status</label>
-            <input type="text" class="form-control" name="status" />
+            <label for="status">Status</label>
+            <select class="form-control" name="status" >
+                <option>BOOKED</option>
+                <option>PENDING</option>
+                <option>OPTION</option>
+            </select>
         </div>
+        <div class="form-group">
+            <label for="client">Client name</label>
+            <input type="text" class="form-control" name="client" required />
+        </div>
+        <div class="form-group">
+            <label for="user">User id</label>
+            <input type="text" class="form-control" name="user" required />
+        </div>
+       <div class="form-group">
+            <label for="user">User name</label>
+            <input type="text" class="form-control" name="username" required />
+        </div>
+         <div class="form-group">
+            <label for="datecreated">Date created</label>
+            <input type="text" class="form-control" name="datecreated" required />
+        </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+{{/if}}

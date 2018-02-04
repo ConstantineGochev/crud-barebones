@@ -12,12 +12,26 @@ const yachtSchema = new Schema({
         required: true
     },
     date: {
-        type: Number,
+        type: String,
         required: true
     },
     status: {
         type: String
+    },
+    user: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String
+    },
+    client:{
+        type: String
+    },
+    datecreated:{
+        type: String,
     }
+  
 });
 
 mongoose.model('yachts', yachtSchema)

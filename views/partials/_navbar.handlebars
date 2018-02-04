@@ -6,20 +6,37 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Yachts
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/yachts">Your Yachts</a>
-                        <a class="dropdown-item" href="/yachts/add">Include yacht</a>
-                    </div>
+                 {{#if user}}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/yachts">Your Charters</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/info">Info</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Logout</a>
+                </li>
+                {{#if user.is_admin}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dashboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/yachts/register">Register User</a>
+                        <a class="dropdown-item" href="/yachts/add">Include charter</a>
+                        <a class="dropdown-item" href="/yachts/allyachts/allyachts">Manage charters</a>
+                    </div>
+                </li>
+                {{/if}}
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Login</a>
+                </li>
+               
+                {{/if}}
             </ul>
           
         </div>
     </div>
 </nav>
+

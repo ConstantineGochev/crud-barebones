@@ -2,8 +2,13 @@
     <h1 class="display-4">Hello, {{name}}!</h1>
     <p class="lead">Welcome to the database of the best yachting company in the world.</p>
     <hr class="my-4">
-    <p>Manage your yachts.</p>
+    {{#if user }}
     <p class="lead">
-        <a class="btn btn-primary btn-lg" href="yachts/add" role="button">Include yacht</a>
+        <a class="btn btn-primary btn-lg" href="/yachts" role="button">Your Charters</a>
     </p>
+    {{else}}
+     <p class="lead">
+        <a class="btn btn-primary btn-lg" href="users/login" role="button">Log in</a>
+    </p>
+    {{/if}}
 </div>
