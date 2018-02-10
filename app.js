@@ -11,6 +11,7 @@ const async = require('async');
 const methodOverride = require('method-override');
 
 
+
 //passport require 
 
 const app = express();
@@ -198,6 +199,19 @@ app.delete('/yachts/:id', (req, res)=>{
 
 //post request make a charter
 
+
+//test api for platform
+// app.get('/test',ensureAuthenticated, (req, res)=>{
+//     Yacht.find({yacht:req.yachts})
+//     .then(yachts =>{
+//         res.render('test',{
+//             yachts:yachts,
+//         })
+//     })
+//    console.log(req.yachts)
+   
+// })
+
 app.post('/yachts', (req, res) => {
     // Yacht.find({yacht:req.yachts})
     // .then(yachts =>{
@@ -305,6 +319,8 @@ app.get('/users/logout',(req, res)=>{
     req.flash('success_msg', 'You are logged out.');
     res.redirect('/users/login')
 })
+
+
 
 
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 console.log('load js file')
 $('.status').each(function(i){
-    if($('.status'+i).html() == 'BOOKED'){
+    if($('.status'+i).html() == 'BOOKING'){
         $('.status'+i).css('color', 'red');
     }else if($('.status'+i).html() == 'PENDING'){
         $('.status'+i).css('color', 'green');    
