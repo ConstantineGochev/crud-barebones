@@ -159,6 +159,9 @@ app.get('/yachts/allyachts/edit/:id', (req, res)=>{
             yacht:yacht
         });
     })
+    .catch((err) => {
+        console.log(err)
+    })
 })
 
 //EDIT FORM PROCESS
@@ -181,6 +184,9 @@ app.put('/yachts/:id',(req,res)=>{
         .then(yacht =>{
             req.flash('success_msg','You successfully edited a charter')
             res.redirect('/yachts/allyachts/allyachts')
+        })
+        .catch(err => {
+            console.log(err)
         })
     })
     .catch(err=>{
