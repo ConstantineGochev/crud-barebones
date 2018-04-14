@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">OdysseyYachting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                 {{#if user}}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/yachts">Your Charters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/info">Info</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Logout</a>
+                </li>
+                {{#if user.is_admin}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dashboard
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/yachts/register">Register User</a>
+                        <a class="dropdown-item" href="/yachts/add">Include charter</a>
+                        <a class="dropdown-item" href="/yachts/allyachts/allyachts">Manage charters</a>
+                    </div>
+                </li>
+                {{/if}}
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Login</a>
+                </li>
+               
+                {{/if}}
+            </ul>
+          
+        </div>
+    </div>
+</nav>
+
